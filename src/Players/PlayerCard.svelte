@@ -12,6 +12,7 @@
 <style>
   .player-name{
     font-size: 28px;
+    padding-left: 0;
     padding-right: 30px;
   }
   .alliance-name{

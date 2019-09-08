@@ -20,7 +20,7 @@
 	}
 
   function sendRequest(name) {
-    return fetch(`API?searchString=${name}`)
+    return fetch(`API_PLAYERS?searchString=${name}`)
 			.then(response => response.text())
   		.then(data => {
 				const res = xmlToJson(strToXml(data));
@@ -30,7 +30,7 @@
 					if(!users) {
 						return null;
 					}
-
+console.log('res',users)
 					return [...userAdapter(users)];
 				} catch(error) {
 					console.log(error)

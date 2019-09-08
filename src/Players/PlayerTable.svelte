@@ -7,6 +7,8 @@
 <style>
 	.player-table{
 		margin-top: 30px;	
+		border-spacing: 0;
+		margin-left: 8px;
 	}
 
 	.player-table > tr{

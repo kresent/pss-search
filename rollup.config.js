@@ -4,7 +4,7 @@ import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import { apiUrl } from './env';
+import { playerUrl, alliancePlayersUrl, allianceUrl } from './env';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,7 +18,9 @@ export default {
 	},
 	plugins: [
 		replace({
-			API: apiUrl
+			API_PLAYERS: playerUrl,
+			API_ALLIANCE_PLAYERS: alliancePlayersUrl,
+			API_ALLIANCES: allianceUrl,
 		}),
 		svelte({
 			// enable run-time checks when not in production

@@ -1,37 +1,23 @@
 <script>
-	import PlayerTable from './Players/PlayerTable.svelte';
-	import PlayerFetch from "./Players/PlayerFetch.svelte";
-	let playerNames = '';
+  import { Router, Route } from "svelte-routing";
+  import NavBar from "./NavBar.svelte";
+  import PlayerSarch from "./Players/PlayerSearch.svelte";
+  import AllianceSarch from "./Alliances/AllianceSearch.svelte";
 </script>
 
 <style>
-	select, input, button {
-		display: block;
-		margin: 0.5em 0;
-		font-size: inherit;
-	}
-
-	.search-input{
-		min-width: 30%;
-	}
-
-	.search-submit{
-		min-width: 20%;
-		height: 30px;
+	:global(body) {
+		font-family: 'Roboto', sans-serif;
+		padding: 0;
 	}
 </style>
 
-<PlayerFetch {playerNames} let:playerData let:err let:fetchPlayers>
-	<input class="search-input" bind:value={playerNames} placeholder="Player Name">
-	<button class="search-submit" disabled={!playerNames} on:click={fetchPlayers}>
-			Request
-	</button>
 
-	{#if playerData}
-		<PlayerTable {playerData}/>
-	{/if}
-
-	{#if err}
-		<p>Error: {err}</p>
-	{/if}
-</PlayerFetch>
+<svelte:head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</svelte:head>
+<Router>
+  <NavBar/>
+	<Route path="players" component="{PlayerSarch}" />
+	<Route path="/"><AllianceSarch /></Route>
+</Router>
