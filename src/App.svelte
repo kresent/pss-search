@@ -2,6 +2,7 @@
   import { Router, Route } from "svelte-routing";
   import NavBar from "./NavBar.svelte";
   import PlayerSarch from "./Players/PlayerSearch.svelte";
+  import Market from "./Market/Market.svelte";
   import AllianceSarch from "./Alliances/AllianceSearch.svelte";
 </script>
 
@@ -19,5 +20,6 @@
 <Router>
   <NavBar/>
 	<Route path="players" component="{PlayerSarch}" />
+	<Route path="try" component="{Market}" />
 	<Route path="/"><AllianceSarch /></Route>
 </Router>
